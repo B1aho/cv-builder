@@ -1,6 +1,6 @@
 import { FormBase } from "./FormBase";
 
-export function ExperienceForm() {
+export function ExperienceForm({id, onComplete, isComplete, removeForm}) {
   const controls = [
     {
       id: "company",
@@ -26,5 +26,5 @@ export function ExperienceForm() {
     }
   ];
 
-  return <FormBase controls={controls} requiredId="company" id={crypto.randomUUID()}/>
+  return <FormBase onComplete={onComplete} removeForm={removeForm} isComplete={isComplete} controls={controls} requiredId="company" id={id}/>
 }

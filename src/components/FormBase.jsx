@@ -3,8 +3,7 @@ import { FormField } from "./FormField"
 import { ControlBtns } from "./FormControlBtns";
 import { FormCardView } from "./FormCardView";
 
-export function FormBase({id, controls, requiredId}) {
-  const [isDone, setIsDone] = useState(false);
+export function FormBase({id, isComplete, removeForm, onComplete, controls, requiredId}) {
   const [formData, setFormData] = useState(controls.reduce((acc, curr) => {
     acc[curr.id] = '';
     return acc;
@@ -30,14 +29,17 @@ export function FormBase({id, controls, requiredId}) {
     e.preventDefault();
     const form = e.target.form
     if (form.checkValidity())
-      setIsDone(true);
+      onComplete(id, true);
     else
       form.reportValidity();
   }
 
-  if (isDone) 
+  if (isComplete) 
     return (
-      <FormCardView title={formData[requiredId]} onEditClick={() => setIsDone(false)}/>
+      <FormCardView 
+        title={formData[requiredId]} 
+        onRemoveClick={removeForm ? () => removeForm(id) : false}  
+        onEditClick={() => onComplete(id, false)}/>
     ); 
 
   return (
@@ -50,6 +52,7 @@ export function FormBase({id, controls, requiredId}) {
           id={controlInfo.id} 
           label={controlInfo.label}
           required = {controlInfo.required ? true : false}
+          type={controlInfo.type}
         />
       })}
       <ControlBtns formId={id} onReset={clearFormData} onSubmit={handleSubmit}/>

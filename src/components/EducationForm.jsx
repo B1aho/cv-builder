@@ -1,6 +1,6 @@
 import { FormBase } from "./FormBase";
 
-export function EducationForm() {
+export function EducationForm({id, onComplete, isComplete, removeForm}) {
   const controls = [
     {
       id: "university",
@@ -21,5 +21,5 @@ export function EducationForm() {
     },
   ];
 
-  return <FormBase controls={controls} requiredId="university" id={crypto.randomUUID()}/>
+  return <FormBase onComplete={onComplete} removeForm={removeForm} isComplete={isComplete} controls={controls} requiredId="university" id={id}/>
 }
