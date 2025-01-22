@@ -2,7 +2,9 @@ export function FormField({ label, id, type = 'text', required = false, onChange
   return (
     <div className="form-row">
       <label htmlFor={id}>{label}</label>
-      <input value={value} required={required} type={type} id={id} onChange={(e) => onChange(e, id)}/>
+      {type !== 'textarea' ?
+        <input value={value} required={required} type={type} id={id} onChange={(e) => onChange(e, id)}/>
+        : <textarea value={value} required={required} type={type} id={id} onChange={(e) => onChange(e, id)}/>}
     </div>
   );
 }
