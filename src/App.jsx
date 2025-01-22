@@ -6,8 +6,8 @@ function App() {
 
   return (
     <>
-      <CollapsibleItem title="Education">
-        <EducationForm />
+      <CollapsibleItem title="Education:">
+        <EducationForm id="education-form"/>
       </CollapsibleItem>
     </>
   )

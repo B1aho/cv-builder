@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { FormField } from "./FormField"
+import { ControlBtns } from "./FormControlBtns";
+import { FormCardView } from "./FormCardView";
 
-export function EducationForm() {
+export function EducationForm({id}) {
   const [isDone, setIsDone] = useState(false);
   const [formData, setFormData] = useState({
     university: '',
@@ -17,6 +19,15 @@ export function EducationForm() {
     setFormData(newformData);
   };
 
+  const clearFormData = (e) => {
+    e.preventDefault();
+    const newformData = { ...formData};
+    Object.keys(newformData).forEach(key => {
+      newformData[key] = '';
+    })
+    setFormData(newformData);
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsDone(true);
@@ -24,18 +35,11 @@ export function EducationForm() {
 
   if (isDone) 
     return (
-      // Сокращенная форма карточки
-      <div className="form-card">
-        <h3>{formData.university}...</h3>
-        <div className="form-card-controlls">
-          <button>X</button>
-          <button onClick={() => setIsDone(false)}>Edit</button>
-        </div>
-      </div>
+      <FormCardView title={formData.university} onEditClick={() => setIsDone(false)}/>
     ); 
 
   return (
-    <form action="/">
+    <form id={id} action="/">
       <FormField 
         onChange={handleFormData}
         value={formData.university}
@@ -61,10 +65,7 @@ export function EducationForm() {
         id="degree" 
         label="Degree:"
       />
-      <div className="form-controlls">
-        <button type="submit" onClick={handleSubmit}>Add data!</button>
-        <button type="reset">Clear form!</button>
-      </div>
+      <ControlBtns onReset={clearFormData} onSubmit={handleSubmit}/>
     </form>
   )
 }
