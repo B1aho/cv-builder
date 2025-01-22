@@ -14,11 +14,11 @@ export function PersonalForm({id, onComplete, isComplete}) {
     },
     {
       id: "email",
-      label: "Graduate year:",
+      label: "Email:",
       type: "email",
     },
     {
-      id: "short-decription",
+      id: "shortDescription",
       label: "Your short description:",
       type: "textarea",
     },

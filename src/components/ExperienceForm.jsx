@@ -12,15 +12,15 @@ export function ExperienceForm({id, onComplete, isComplete, removeForm}) {
       label: "Role:",
     },
     {
-      id: "start-year",
+      id: "startJobYear",
       label: "Start year:",
     },
     {
-      id: "end-year",
+      id: "endJobYear",
       label: "End year:",
     },
     {
-      id: "job-description",
+      id: "jobDescription",
       label: "Job description:",
       type: "textarea"
     }

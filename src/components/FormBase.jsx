@@ -28,8 +28,16 @@ export function FormBase({id, isComplete, removeForm, onComplete, controls, requ
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target.form
-    if (form.checkValidity())
-      onComplete(id, true);
+    if (form.checkValidity()) {
+      const filledData = {}
+      const formData = new FormData(form);
+      formData.forEach((value, key) => {
+        if (value) {
+          filledData[key] = value;
+        }
+      });
+      onComplete(id, true, filledData);
+    }
     else
       form.reportValidity();
   }
