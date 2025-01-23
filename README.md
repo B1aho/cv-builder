@@ -1,8 +1,16 @@
-# React + Vite
+# CV-BUILDER
+[Link](https://steady-liger-90e1aa.netlify.app/)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## What I learned
+- Thinking in React: 
+Understanding how to break the UI into reusable components and structure them hierarchically.
+- Component-based architecture: 
+Creating modular and independent components to manage different parts of the application.
+- Unidirectional data flow: 
+Observing how React ensures predictable state management by using a one-way data binding approach.
+- State and props: 
+Differentiating between local component state and data passed from parent components through props.
+## Features
+- Dynamic form for entering CV details.
+- Real-time preview of the CV as you fill in the form.
+- Minimal and responsive design for better usability.
