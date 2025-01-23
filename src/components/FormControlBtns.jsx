@@ -1,8 +1,8 @@
 export function ControlBtns({onSubmit, onReset, formId}) {
   return (
     <div className="form-controlls">
-      <button type="submit" form={formId} onClick={onSubmit}>Add data!</button>
-      <button type="reset" onClick={onReset}>Clear form!</button>
+      <button  className="control-btn submit" type="submit" form={formId} onClick={onSubmit}>Add data!</button>
+      <button className="control-btn clear" type="reset" onClick={onReset}>Clear form!</button>
     </div>
   );
 }

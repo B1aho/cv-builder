@@ -1,20 +1,20 @@
 export const educationForm = [
   {
     id: "university",
-    label: "University*:",
+    label: "University*",
     required: true,
   },
   {
     id: "startYear",
-    label: "Start year:",
+    label: "Start year",
   },
   {
     id: "graduateYear",
-    label: "Graduate year:",
+    label: "Graduate year",
   },
   {
     id: "degree",
-    label: "Degree:",
+    label: "Degree",
   },
 ];
 
@@ -31,24 +31,24 @@ export const education = {
 export const experienceForm = [
   {
     id: "company",
-    label: "Company*:",
+    label: "Company*",
     required: true,
   },
   {
     id: "role",
-    label: "Role:",
+    label: "Role",
   },
   {
     id: "startJobYear",
-    label: "Start year:",
+    label: "Start year",
   },
   {
     id: "endJobYear",
-    label: "End year:",
+    label: "End year",
   },
   {
     id: "jobDescription",
-    label: "Job description:",
+    label: "Job description",
     type: "textarea"
   },
 ];
@@ -67,22 +67,22 @@ export const experience = {
 export const personalForm = [
   {
     id: "fullname",
-    label: "Full Name*:",
+    label: "Full Name*",
     required: true,
   },
   {
     id: "phone",
-    label: "Phone number:",
+    label: "Phone number",
     required: true,
   },
   {
     id: "email",
-    label: "Email:",
+    label: "Email",
     type: "email",
   },
   {
     id: "shortDescription",
-    label: "Your short description:",
+    label: "Your short description",
     type: "textarea",
   },
 ];

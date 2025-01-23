@@ -1,0 +1,48 @@
+input,
+textarea {
+  padding: .375rem .75rem;
+  border-radius: .25rem;
+  border: 1px solid var(--grey-200);
+  background-color: var(--grey-100);
+  margin-bottom: 0.4rem;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 20px;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-controlls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.control-btn {
+  background-color: transparent;
+  padding: 0.3em 0.8em;
+  transition: all 100ms ease-in-out;
+}
+
+.control-btn:hover {
+  outline: 1px solid var(--blue-700);
+}
+
+.control-btn.clear {
+  color: rgba(255, 41, 41, 0.731);
+}
+
+.control-btn.clear:hover {
+  outline: 1px solid rgba(255, 41, 41, 0.731);
+}
+
+
+.control-btn.submit {
+  color: var(--blue-600);
+}
