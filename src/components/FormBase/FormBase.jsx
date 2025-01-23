@@ -1,7 +1,7 @@
 import './FormBase.css'
-import { FormField } from "./FormField"
-import { ControlBtns } from "./FormControlBtns";
-import { FormCardView } from "./FormCardView";
+import { FormField } from "../FormField/FormField"
+import { ControlBtns } from "../FormControlBtn/FormControlBtns";
+import { FormCardView } from "../FormCard/FormCardView";
 
 export function FormBase({formValues, onChange, clearForm, removeForm, onComplete, controls}) {
   const handleFormData = (e, control) => {

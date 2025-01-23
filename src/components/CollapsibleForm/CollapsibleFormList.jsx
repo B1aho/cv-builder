@@ -1,8 +1,8 @@
 import './CollapsibleForm.css';
-import arrow from '../assets/arrow.svg';
-import plus from '../assets/plus.svg';
+import arrow from '../../assets/arrow.svg';
+import plus from '../../assets/plus.svg';
 import { useState } from "react";
-import { FormBase } from "./FormBase";
+import { FormBase } from "../FormBase/FormBase";
 
 export function CollapsibleFormList({onClearForm, onRemove, onAddForm, onChange, onComplete, title, type, forms, controls, isMultiple = false}) {
   const [isCollapse, setCollapse] = useState(false);

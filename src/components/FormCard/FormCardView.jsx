@@ -1,5 +1,5 @@
-import trash from '../assets/trash.svg';
-import edit from '../assets/edit.svg';
+import trash from '../../assets/trash.svg';
+import edit from '../../assets/edit.svg';
 
 export function FormCardView({title, onEditClick, onRemoveClick}) {
   return (

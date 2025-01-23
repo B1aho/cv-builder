@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './App.css';
-import { CollapsibleFormList } from './components/CollapsibleFormList';
-import { Preview } from './components/Preview';
+import { CollapsibleFormList } from './components/CollapsibleForm/CollapsibleFormList';
+import { Preview } from './components/Preview/Preview';
 import { experienceForm, educationForm, personalForm, personal, experience, education } from './formConfig';
 
 function App() {
