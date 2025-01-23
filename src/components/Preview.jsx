@@ -1,38 +1,56 @@
+import '../Preview.css';
+
 export function Preview({formData}) {
+  const {personal, education, experience } = formData;
+  const pers = personal[0] ? personal[0] : {};
   return (
     <>
       <header className="header">
         <div className="contact-info">
-          <h1>{formData.fullname}</h1>
+          <h1>{pers.fullname || 'Your name here'}</h1>
           <div className="contact-info-details">
-            <p>{formData.phone}</p>
-            <p>{formData.email}</p>
+            <p>{pers.phone}</p>
+            <p>{pers.email}</p>
           </div>
         </div>
         <div className="short-description">
-          <p>{formData.shortDescription}</p>
+          <p>{pers.shortDescription}</p>
         </div>
       </header>
       <main>
         <section className="main-content educations">
-          <h3 className="main-content__title">Educations</h3>
-          <div className="preview-entry education">
-            <p className="text-bold">{formData.university}</p>
-            <p className="text-light-italic">{formData.degree}, GPA: {formData.grade}</p>
-          </div><p>{formData.startYear}-{formData.graduateYear}</p>
-          {/* <div className="preview-entry education">
-            <p className="text-bold">University2</p>
-            <p className="text-light-italic">Degree, GPA: Grade</p>
-            <p>Start Year-Graduate Year</p>
-          </div> */}
+          <h3 className="main-content__title">Educations:</h3>
+          {education.map(formVal => {
+            return (
+              <div className='preview-container' key={formVal.id}>
+                <div className="preview-entry education">
+                  <p className="text-bold">{formVal.university}</p>
+                  <p className="text-light-italic">{formVal.degree}, GPA: {formVal.grade}</p>
+                </div>
+                <div className="preview-years">
+                  <p>{formVal.startYear}-{formVal.graduateYear}</p>
+                </div>
+              </div>
+            )
+          })}
         </section>
         <section className="main-content experiences">
-          <h3 className="main-content__title">Experiences</h3>
+          <h3 className="main-content__title">Experiences:</h3>
           <div className="preview-entry experience">
-            <p className="text-bold">{formData.experience[0] && formData.experience[0].company}</p>
-            <p className="text-light-italic">{formData.role}</p>
-            <p>{formData.jobDescription}</p>
-            <p>{formData.startJobYear}-{formData.endJobYear}</p>
+            {experience.map(formVal => {
+              return (
+                <div className='preview-container' key={formVal.id}>
+                  <div className="company-content">
+                    <p className="text-bold">{formVal.company}</p>
+                    <p className="text-light-italic">{formVal.role}</p>
+                    <p>{formVal.jobDescription}</p>
+                  </div>
+                  <div className="preview-years">
+                    <p>{formVal.startJobYear}-{formVal.endJobYear}</p>
+                  </div>
+                </div>
+              )
+            })}
           </div>
         </section>
       </main>

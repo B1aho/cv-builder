@@ -2,16 +2,11 @@ import { FormField } from "./FormField"
 import { ControlBtns } from "./FormControlBtns";
 import { FormCardView } from "./FormCardView";
 
-export function FormBase({formValues, onChange, removeForm, onComplete, controls}) {
+export function FormBase({formValues, onChange, clearForm, removeForm, onComplete, controls}) {
   const handleFormData = (e, control) => {
     const value = e.target.value;
     onChange(value, control, formValues.id)
   };
-
-  const clearFormData = (e) => {
-    e.preventDefault();
-    
-  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -44,7 +39,7 @@ export function FormBase({formValues, onChange, removeForm, onComplete, controls
           type={controlInfo.type}
         />
       })}
-      <ControlBtns formId={formValues.id} onReset={clearFormData} onSubmit={handleSubmit}/>
+      <ControlBtns formId={formValues.id} onReset={() => clearForm(formValues.id)} onSubmit={handleSubmit}/>
     </form>
   )
 }

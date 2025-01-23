@@ -60,12 +60,25 @@ function App() {
     setData(newData);
   }
 
+  const onClearForm = (type, formId) => {
+    const newData = {...data};
+    newData[type].forEach(form => {
+      if (form.id === formId) {
+        Object.keys(form).forEach(key => {
+          if (key !== 'id' && key !== 'isComplete' && key !== 'shortView')
+            form[key] = '';
+        })
+      }
+    });
+    setData(newData);
+  }
+
   return (
     <>
       <section id="forms-section">
-        <CollapsibleFormList onRemove={onRemove} onComplete={onComplete} onAddForm={onAddForm} onChange={onChange} controls={personalForm} type='personal' forms={data.personal} title="Personal Details:" />
-        <CollapsibleFormList onRemove={onRemove} onComplete={onComplete} onAddForm={onAddForm} onChange={onChange} controls={educationForm} type='education' forms={data.education} title="Educations:" isMultiple={true} />
-        <CollapsibleFormList onRemove={onRemove} onComplete={onComplete} onAddForm={onAddForm} onChange={onChange} controls={experienceForm} type='experience' forms={data.experience} title="Job experience:" isMultiple={true} />
+        <CollapsibleFormList onClearForm={onClearForm} onRemove={onRemove} onComplete={onComplete} onAddForm={onAddForm} onChange={onChange} controls={personalForm} type='personal' forms={data.personal} title="Personal Details:" />
+        <CollapsibleFormList onClearForm={onClearForm} onRemove={onRemove} onComplete={onComplete} onAddForm={onAddForm} onChange={onChange} controls={educationForm} type='education' forms={data.education} title="Educations:" isMultiple={true} />
+        <CollapsibleFormList onClearForm={onClearForm} onRemove={onRemove} onComplete={onComplete} onAddForm={onAddForm} onChange={onChange} controls={experienceForm} type='experience' forms={data.experience} title="Job experience:" isMultiple={true} />
       </section>
       <section id="preview">
         <Preview formData={data}/>

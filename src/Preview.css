@@ -1,0 +1,32 @@
+#preview {
+  background-color: antiquewhite;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-info-details {
+  display: flex;
+  gap: 10px;
+}
+
+.header {
+  text-align: left;
+  background-color: aqua;
+  border-radius: 5px;
+}
+
+.main-content__title {
+  border-bottom: 1px solid black;
+  text-align: left;
+  min-width: 100%;
+}
+
+.preview-container {
+  display: flex;
+  justify-content: space-between;
+}
