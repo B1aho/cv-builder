@@ -1,3 +1,4 @@
+import './CollapsibleForm.css';
 import { useState } from "react";
 import { FormBase } from "./FormBase";
 
@@ -29,8 +30,8 @@ export function CollapsibleFormList({onClearForm, onRemove, onAddForm, onChange,
 
   
   return (
-    <div>
-      <header onClick={toggleCollapse} style={{ cursor: 'pointer' }}>
+    <div className="collapse-form">
+      <header className="collapse-header" onClick={toggleCollapse} style={{ cursor: 'pointer' }}>
         <h1>{title}</h1>
         <button>▶️</button>
       </header>
