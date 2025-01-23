@@ -6,6 +6,10 @@
   max-height: fit-content;
 }
 
+.fullname {
+  margin: 0;
+}
+
 .contact-info {
   display: flex;
   flex-direction: column;
@@ -19,7 +23,7 @@
 .header {
   text-align: left;
   background-color: rgb(228, 245, 255);
-  border-right: 50px solid var(--blue-950);
+  border-right: 40px solid var(--blue-950);
   padding: 2rem 3rem;
   background-color: var(--grey-100);
 }
@@ -35,6 +39,22 @@
   justify-content: space-between;
 }
 
+.short-description {
+  max-width: 100%;
+  text-overflow: clip;
+  margin: 0;
+}
+
 main {
   padding: 0.8rem;
+}
+
+.text-light-italic {
+  font-weight: 300;
+  font-style: italic;
+  opacity: 0.8;
+}
+
+.text-bold {
+  font-weight: 700;
 }

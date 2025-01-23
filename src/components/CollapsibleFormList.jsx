@@ -1,5 +1,6 @@
 import './CollapsibleForm.css';
-import arrow from '../assets/arrow.svg'
+import arrow from '../assets/arrow.svg';
+import plus from '../assets/plus.svg';
 import { useState } from "react";
 import { FormBase } from "./FormBase";
 
@@ -41,7 +42,7 @@ export function CollapsibleFormList({onClearForm, onRemove, onAddForm, onChange,
         forms.map(form => {
           return (<FormBase clearForm={clearForm} key={form.id} formValues={form} onChange={onFormChange} onComplete={(id, value) => onComplete(id, type, value)} removeForm={removeForm} controls={controls} />)
         })}
-        {(isMultiple && everyOtherIsDone() || forms.length === 0) && <button className='add-btn' onClick={() => onAddForm(type)}>+ Add new item</button>}
+        {(isMultiple && everyOtherIsDone() || forms.length === 0) && <button className='add-btn' onClick={() => onAddForm(type)}><span className='span-btn'><img src={plus} alt="plus-image" />ADD FORM</span></button>}
       </div>
 
     </div>

@@ -1,7 +1,7 @@
 export const educationForm = [
   {
     id: "university",
-    label: "University*",
+    label: "University",
     required: true,
   },
   {
@@ -11,6 +11,10 @@ export const educationForm = [
   {
     id: "graduateYear",
     label: "Graduate year",
+  },
+  {
+    id: "grade",
+    label: "Grade",
   },
   {
     id: "degree",
@@ -31,7 +35,7 @@ export const education = {
 export const experienceForm = [
   {
     id: "company",
-    label: "Company*",
+    label: "Company",
     required: true,
   },
   {
@@ -67,7 +71,7 @@ export const experience = {
 export const personalForm = [
   {
     id: "fullname",
-    label: "Full Name*",
+    label: "Full Name",
     required: true,
   },
   {

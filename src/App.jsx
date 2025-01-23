@@ -76,9 +76,9 @@ function App() {
   return (
     <>
       <section id="forms-section">
-        <CollapsibleFormList onClearForm={onClearForm} onRemove={onRemove} onComplete={onComplete} onAddForm={onAddForm} onChange={onChange} controls={personalForm} type='personal' forms={data.personal} title="Personal Details:" />
-        <CollapsibleFormList onClearForm={onClearForm} onRemove={onRemove} onComplete={onComplete} onAddForm={onAddForm} onChange={onChange} controls={educationForm} type='education' forms={data.education} title="Educations:" isMultiple={true} />
-        <CollapsibleFormList onClearForm={onClearForm} onRemove={onRemove} onComplete={onComplete} onAddForm={onAddForm} onChange={onChange} controls={experienceForm} type='experience' forms={data.experience} title="Job experience:" isMultiple={true} />
+        <CollapsibleFormList onClearForm={onClearForm} onRemove={onRemove} onComplete={onComplete} onAddForm={onAddForm} onChange={onChange} controls={personalForm} type='personal' forms={data.personal} title="Personal Details" />
+        <CollapsibleFormList onClearForm={onClearForm} onRemove={onRemove} onComplete={onComplete} onAddForm={onAddForm} onChange={onChange} controls={educationForm} type='education' forms={data.education} title="Educations" isMultiple={true} />
+        <CollapsibleFormList onClearForm={onClearForm} onRemove={onRemove} onComplete={onComplete} onAddForm={onAddForm} onChange={onChange} controls={experienceForm} type='experience' forms={data.experience} title="Job experience" isMultiple={true} />
       </section>
       <section id="preview">
         <Preview formData={data}/>

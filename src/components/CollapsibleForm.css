@@ -48,4 +48,51 @@
 .add-btn {
   align-self: center;
   margin-left: 25%;
+  background-color: transparent;
+  color: var(--blue-400);
+}
+
+.add-btn:hover {
+  outline: 1px solid var(--blue-600);
+}
+
+.span-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+label {
+  color: rgba(0, 0, 0, 0.505);
+}
+
+.label-required::after {
+  content: ' *';
+  color: rgba(250, 30, 30, 0.763);
+}
+
+.form-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.2rem;
+  border-radius: 10px;
+}
+
+.form-card:hover {
+  background-color: var(--blue-100);
+}
+
+.form-card-controlls {
+  display: flex;
+  gap: 5px;
+}
+
+.card-btn {
+  background: transparent;
+  padding: 0.4rem 0.7rem;
+}
+
+.card-btn:hover {
+  outline: 1px solid var(--blue-600);
 }

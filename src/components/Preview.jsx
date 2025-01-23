@@ -1,4 +1,4 @@
-import '../Preview.css';
+import './Preview.css';
 
 export function Preview({formData}) {
   const {personal, education, experience } = formData;
@@ -7,14 +7,14 @@ export function Preview({formData}) {
     <>
       <header className="header">
         <div className="contact-info">
-          <h1>{pers.fullname || 'Your name here'}</h1>
+          <h1 className='fullname'>{pers.fullname || 'Your name here'}</h1>
           <div className="contact-info-details">
-            <p>{pers.phone}</p>
-            <p>{pers.email}</p>
+            <p className='text-light-italic'>{pers.phone}</p>
+            <p className='text-light-italic'>{pers.email}</p>
           </div>
         </div>
         <div className="short-description">
-          <p>{pers.shortDescription}</p>
+          <p className="short-description">{pers.shortDescription}</p>
         </div>
       </header>
       <main>

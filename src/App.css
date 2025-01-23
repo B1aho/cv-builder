@@ -4,3 +4,17 @@
   gap: 25px;
   max-width: 30vw;
 }
+
+@media (width <=720px) {
+  #root {
+    flex-direction: column;
+  }
+
+  #forms-section {
+    max-width: 90vw;
+  }
+
+  #preview {
+    max-width: 90vw !important;
+  }
+}
