@@ -1,38 +1,71 @@
 import { useState } from 'react';
 import './App.css';
-import { CollapsibleItem } from './components/CollapsibleItem';
-import { EducationForm } from './components/EducationForm';
-import { ExperienceForm } from './components/ExperienceForm';
-import { PersonalForm } from './components/PersonalForm';
+import { CollapsibleFormList } from './components/CollapsibleFormList';
 import { Preview } from './components/Preview';
+import { experienceForm, educationForm, personalForm, personal, experience, education } from './formConfig';
 
 function App() {
+  // Храним данные для всех секций в состоянии
   const [data, setData] = useState({
-    fullname: "Your fullname will be here",
-    phone: "+1(234)5607",
-    email: "mail@gmail.com",
-    shortDescription: "Short self presentation...",
-    university: "university",
-    startYear: "2016",
-    graduateYear: "2020",
-    degree: "Phd",
-    company: "Company",
-    role: "Role",
-    startJobYear: "2022",
-    endJobYear: "2024",
-    jobDescription: "Some job desc..."
-  })
-  const onFormDataSubmit = (formData) => {
-    console.log(formData);
-    const newData = {...data, ...formData}
+    personal: [],
+    education: [],
+    experience: [],
+  });
+
+  const onChange = (value, control, type, formId) => {
+    const newData = {...data};
+    newData[type].forEach(form => {
+      form.id === formId ? form[control] = value : null;
+    });
     setData(newData);
   }
+
+  const onAddForm = (type) => {
+    const newData = {...data};
+    switch (type) {
+    case 'personal':{
+      const newForm = {...personal};
+      newForm.id = crypto.randomUUID();
+      newData[type].push(newForm);}
+      break;
+    case 'education':{
+      const newForm = {...education};
+      newForm.id = crypto.randomUUID();
+      newData[type].push(newForm);
+    }
+      break;
+    case 'experience':{
+      const newForm = {...experience};
+      newForm.id = crypto.randomUUID();
+      newData[type].push(newForm);
+    }
+      break;
+    default:
+      break;
+    }
+    setData(newData);
+  };
+
+  const onComplete = (id, type, value) => {
+    const newData = {...data};
+    newData[type].forEach(form => {
+      form.id === id ? form.isComplete = value : null;
+    });
+    setData(newData);
+  }
+
+  const onRemove = (type, formId) => {
+    const newData = {...data};
+    newData[type] = newData[type].filter((form) => form.id !== formId);
+    setData(newData);
+  }
+
   return (
     <>
       <section id="forms-section">
-        <CollapsibleItem onFormDataSubmit={onFormDataSubmit} title="Personal Details:" Form={PersonalForm} />
-        <CollapsibleItem onFormDataSubmit={onFormDataSubmit} title="Education:" isMultiple={true} Form={EducationForm} />
-        <CollapsibleItem onFormDataSubmit={onFormDataSubmit} title="Experience:" isMultiple={true} Form={ExperienceForm} />
+        <CollapsibleFormList onRemove={onRemove} onComplete={onComplete} onAddForm={onAddForm} onChange={onChange} controls={personalForm} type='personal' forms={data.personal} title="Personal Details:" />
+        <CollapsibleFormList onRemove={onRemove} onComplete={onComplete} onAddForm={onAddForm} onChange={onChange} controls={educationForm} type='education' forms={data.education} title="Educations:" isMultiple={true} />
+        <CollapsibleFormList onRemove={onRemove} onComplete={onComplete} onAddForm={onAddForm} onChange={onChange} controls={experienceForm} type='experience' forms={data.experience} title="Job experience:" isMultiple={true} />
       </section>
       <section id="preview">
         <Preview formData={data}/>
@@ -41,4 +74,4 @@ function App() {
   )
 }
 
-export default App
+export default App;

@@ -29,7 +29,7 @@ export function Preview({formData}) {
         <section className="main-content experiences">
           <h3 className="main-content__title">Experiences</h3>
           <div className="preview-entry experience">
-            <p className="text-bold">{formData.company}</p>
+            <p className="text-bold">{formData.experience[0] && formData.experience[0].company}</p>
             <p className="text-light-italic">{formData.role}</p>
             <p>{formData.jobDescription}</p>
             <p>{formData.startJobYear}-{formData.endJobYear}</p>
